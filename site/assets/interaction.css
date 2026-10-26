@@ -1,0 +1,54 @@
+/* BIAN R2.3: one interaction language across five documents. */
+:root{--action-ink:#3b2a1c;--action-edge:#b6a389;--action-wash:#e9dfcd;--action-focus:#765124;--action-time:160ms}
+.action-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0;height:100%;padding:26px 23px 23px;border:1px solid #d8cfbd;border-top:2px solid #b6a389;background:#f6f1e7;color:#3b2a1c;text-decoration:none;cursor:pointer;transition:background-color var(--action-time) ease,border-color var(--action-time) ease,transform var(--action-time) ease,box-shadow var(--action-time) ease}
+.action-card h3{font-size:22px;line-height:1.5;margin:14px 0 0;letter-spacing:-.045em}
+.action-card p{font-size:15px;line-height:1.85;margin:17px 0 25px}
+.action-card .card-cta{display:flex;align-items:center;gap:14px;margin-top:auto;padding:10px 13px;border:1px solid #b6a389;background:#eee4d3;font-size:13px;line-height:1.6;font-weight:500;width:100%;min-height:44px}
+.action-card .card-cta .action-arrow{margin-left:auto}
+.action-arrow{display:inline-block;flex-shrink:0;font-weight:400;transition:transform var(--action-time) ease}
+.action-card .card-format{display:block;margin-top:8px;font-size:11px;color:#746858}
+.action-link, a.button, button{transition:background-color var(--action-time) ease,border-color var(--action-time) ease,color var(--action-time) ease,box-shadow var(--action-time) ease}
+a.action-link,button.action-link{display:inline-flex;align-items:center;justify-content:space-between;gap:15px;min-height:44px;padding:11px 17px;border:1px solid #b6a389;color:#3b2a1c;background:#f6f1e7;text-decoration:none;font-size:14px;line-height:1.5;cursor:pointer}
+a.action-link.primary,.action-link.solid{background:#3b2a1c;color:#f1ecdf;border-color:#3b2a1c}
+.context-next{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #d8cfbd;padding-top:22px;margin-top:26px}
+.context-next p{font-size:15px;line-height:1.8;max-width:660px}
+.context-next .action-link{flex-shrink:0}
+.slide .slide-next{margin-top:10px;display:flex;justify-content:flex-end}
+.slide-next .action-link{font-size:12px;min-height:36px;padding:8px 13px}
+.slide .note .action-link{font-size:12px;min-height:36px;padding:7px 12px;margin-left:8px;vertical-align:middle}
+nav a:not(.action-card){text-underline-offset:6px;text-decoration-thickness:1px}
+nav a[aria-current="page"]{text-decoration:underline;font-weight:600}
+.toolbar a,.toolbar button,.nav button,.compare-controls button{transition:background-color var(--action-time) ease,border-color var(--action-time) ease,color var(--action-time) ease}
+.src{white-space:nowrap;cursor:pointer}
+.src .source-word{font-size:9px;opacity:.85;margin-right:3px}
+details summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:44px;list-style:none;border-radius:0;padding:8px 10px;transition:background-color var(--action-time) ease}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:'답변 보기 +';font-size:12px;font-weight:400;white-space:nowrap;color:#765124}
+details[open] summary:after{content:'답변 접기 −'}
+:is(.action-card,.action-link,button,summary,nav a):focus-visible{outline:3px solid #765124;outline-offset:4px}
+.toolbar :is(a,button):focus-visible,.nav :is(button,select):focus-visible{outline-color:#e6c68d}
+.action-card:focus-visible{background:#e9dfcd;border-color:#8b683b}
+.action-card:active{background:#e4d8c2;transform:translateY(0);box-shadow:inset 0 0 0 1px #8b683b}
+.action-link:active,button:active{box-shadow:inset 0 0 0 1px currentColor}
+@media(hover:hover) and (pointer:fine){
+ .action-card:hover{background:#e9dfcd;border-color:#8b683b;transform:translateY(-3px);box-shadow:0 7px 16px #3b2a1c0b}
+ :is(.action-card,.action-link):hover .action-arrow{transform:translateX(3px)}
+ .action-link:hover,summary:hover{background:#e9dfcd;border-color:#8b683b}
+ a.action-link.primary:hover,.action-link.solid:hover{background:#573f29;border-color:#573f29}
+ .toolbar :is(a,button):hover,.nav button:hover{background:#ffffff17;border-color:#b6a389}
+ nav a:not(.action-card):hover{text-decoration:underline}
+ .compare-controls button:hover,.src:hover{background:#e9dfcd;border-color:#8b683b}
+ .compare-controls button.solid:hover{background:#573f29;color:#f1ecdf}
+}
+@media(max-width:760px){
+ .action-card{padding:23px 20px}.action-card h3{font-size:23px}.action-card p{font-size:15px}.action-card .card-cta{min-height:46px;font-size:14px}
+ .context-next{display:block}.context-next .action-link{margin-top:15px;width:100%}
+ .slide .slide-next{justify-content:flex-start;margin-top:18px}.slide-next .action-link,.slide .note .action-link{min-height:44px;font-size:13px}
+ .slide .note .action-link{margin:12px 0 0;display:flex;width:fit-content}
+ .toolbar :is(a,button){min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+ .toolbar{position:relative}.nav button{min-height:44px}.compare-controls button{min-height:44px}
+ .slide footer .src{min-height:36px;padding:7px 8px}.src .source-word{font-size:10px}
+ .slide footer{position:static;margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}.slide footer>span:last-child{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+}
+@media(prefers-reduced-motion:reduce){.action-card,.action-link,.action-arrow,button,summary,nav a{transition:none!important}.action-card:hover,.action-arrow{transform:none!important}html{scroll-behavior:auto!important}}
+@media print{.action-card,.action-link{box-shadow:none!important;transform:none!important;transition:none!important}.action-link{display:inline-block!important;min-height:0!important;padding:3px 8px!important;font-size:11px!important;width:auto!important}.action-arrow{transform:none!important;margin-left:8px}.slide-next{display:none!important}.action-card{break-inside:avoid}.card-cta{background:transparent!important}details summary:after{display:none}.src .source-word{font-size:8px}}
